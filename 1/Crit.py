@@ -59,7 +59,7 @@ def display(SPX, PPX, X):
     plt.subplot(2, 1, 2)
     plt.plot([x[0] for x in X], [x[1] for x in X], 'bo')
     plt.plot([x[0] for x in SPX], [x[1] for x in SPX], 'ro')
-    plt.plot([x[0] for x in SPX], [x[1] for x in SPX], 'r--')
+    plt.plot([x[0] for x in SPX], [x[1] for x in SPX], 'r-')
     plt.title("Slayter")
     plt.axis([-1, 10, -1, 10])
 
@@ -72,7 +72,7 @@ def display(SPX, PPX, X):
     plt.subplot(2, 1, 1)
     plt.plot([x[0] for x in X], [x[1] for x in X], 'bo')
     plt.plot([x[0] for x in PPX], [x[1] for x in PPX], 'ro')
-    plt.plot([x[0] for x in PPX], [x[1] for x in PPX], 'r--')
+    plt.plot([x[0] for x in PPX], [x[1] for x in PPX], 'r-')
     plt.title("Pareto")
     plt.axis([-1, 10, -1, 10])
 
@@ -92,10 +92,10 @@ if __name__ == '__main__':
     display(Sl(SPX), Pareto(PPX), X)
 
 
-    APPX = [[dataFrame['example{}'.format(k)]['q1'][z], [dataFrame['example{}'.format(k)]['q2'][z]], 1] for k in range(1, 3) for z in range(20)]
+    APPX = [[dataFrame['example4']['q1'][z], [dataFrame['example4']['q2'][z]], 1]  for z in range(60)]
 
-    ASPX = [[dataFrame['example{}'.format(k)]['q1'][z], [dataFrame['example{}'.format(k)]['q2'][z]], 1] for k in range(1, 3) for z in range(20)]
+    ASPX = [[dataFrame['example4']['q1'][z], [dataFrame['example4']['q2'][z]], 1]  for z in range(60)]
 
-    AX = [[dataFrame['example{}'.format(k)]['q1'][z], [dataFrame['example{}'.format(k)]['q2'][z]], 1] for k in range(1, 3) for z in range(20)]
+    AX = [[dataFrame['example4']['q1'][z], [dataFrame['example4']['q2'][z]], 1] for z in range(60)]
 
     display(Sl(ASPX), Pareto(APPX), AX)
