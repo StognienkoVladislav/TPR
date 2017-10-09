@@ -93,9 +93,7 @@ if __name__ == '__main__':
 
 
     APPX = [[dataFrame['example4']['q1'][z], [dataFrame['example4']['q2'][z]], 1]  for z in range(60)]
-
     ASPX = [[dataFrame['example4']['q1'][z], [dataFrame['example4']['q2'][z]], 1]  for z in range(60)]
-
     AX = [[dataFrame['example4']['q1'][z], [dataFrame['example4']['q2'][z]], 1] for z in range(60)]
 
     display(Sl(ASPX), Pareto(APPX), AX)
