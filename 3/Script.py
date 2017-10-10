@@ -1,21 +1,5 @@
 import pandas as pd
 
-CASE = 100
-
-dataFrame = pd.read_json('data.json')
-
-print(dataFrame)
-
-sort1 = sorted(dataFrame["d1"])
-#print(sort1)
-sort2 = sorted(dataFrame["d2"])
-sort3 = sorted(dataFrame["d3"])
-
-valerchick = [52, 21, 93, 90, 89, 9, 31, 73, 64, 35, 48, 95, 77, 13, 33, 98, 49, 55, 55, 93]
-
-
-testtt = [51, 51, 51]
-
 def NFA(data):
     ultra_checker = 0
     b = 1
@@ -29,15 +13,9 @@ def NFA(data):
             b+=1
             cases_count[b] = [i]
 
-    print(ultra_checker)
+    #print(ultra_checker)
 
     return cases_count
-
-#print(NFA(dataFrame["d1"]))
-#print(NFA(sort1))
-#print(NFA(valerchick))
-print(NFA(testtt))
-##################################
 
 def FFA(data):
     ultra_checker = 0
@@ -69,14 +47,9 @@ def FFA(data):
                 b += 1
                 cases_count[b] = [i]
 
-    print(ultra_checker)
+    #print(ultra_checker)
 
     return cases_count
-
-#print(FFA(dataFrame["d1"]))
-#print(FFA(sort1))
-print(FFA(testtt))
-#print(FFA(valerchick))
 
 def WFA(data):
     ultra_checker = 0
@@ -118,14 +91,8 @@ def WFA(data):
                 b += 1
                 cases_count[b] = [i]
 
-
+    #print(ultra_checker)
     return cases_count
-
-#print(WFA(dataFrame["d1"]))
-#print(WFA(sort1))
-print(WFA(testtt))
-#print(WFA(valerchick))
-
 
 def BFA(data):
     ultra_checker = 0
@@ -167,10 +134,40 @@ def BFA(data):
                 b += 1
                 cases_count[b] = [i]
 
-    print(ultra_checker)
+    #print(ultra_checker)
 
     return cases_count
 
-#print(BFA(dataFrame["d1"]))
-print(BFA(sort1))
-#print(BFA(valerchick))
+if __name__ == "__main__":
+    global CASE
+    CASE = 100
+
+    dataFrame = pd.read_json('data.json')
+
+    print(dataFrame)
+
+    sort1 = sorted(dataFrame["d1"])
+    # print(sort1)
+    sort2 = sorted(dataFrame["d2"])
+    sort3 = sorted(dataFrame["d3"])
+
+    valerchick = [52, 21, 93, 90, 89, 9, 31, 73, 64, 35, 48, 95, 77, 13, 33, 98, 49, 55, 55, 93]
+
+    testtt = [51, 51, 51]
+
+    comb = []
+
+    for j in dataFrame:
+        for v in dataFrame[j]:
+            comb.append(v)
+
+    sorted(comb)
+
+    print("\nNFA for 1 set")
+    print(NFA(sort3))
+    print("\nFFA for 1 set")
+    print(FFA(sort3))
+    print("\nWFA for 1 set")
+    print(WFA(sort3))
+    print("\nBFA for 1 set")
+    print(BFA(sort3))
