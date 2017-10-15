@@ -13,7 +13,7 @@ def NFA(data):
             b+=1
             cases_count[b] = [i]
 
-    #print(ultra_checker)
+    print(ultra_checker)
 
     return cases_count
 
@@ -22,9 +22,7 @@ def FFA(data):
     b = 1
     cases_count = {1: [0]}
     for i in data:
-        count = 0
-        for j in cases_count[b]:
-            count += j
+        count = sum(cases_count[b])
 
         ultra_checker += 1
 
@@ -38,7 +36,6 @@ def FFA(data):
 
                 ccount = sum(v)
                 ultra_checker += 1
-
                 if i + ccount < CASE:
                     cases_count[k].append(i)
                     check = True
@@ -47,7 +44,7 @@ def FFA(data):
                 b += 1
                 cases_count[b] = [i]
 
-    #print(ultra_checker)
+    print(ultra_checker)
 
     return cases_count
 
@@ -91,7 +88,7 @@ def WFA(data):
                 b += 1
                 cases_count[b] = [i]
 
-    #print(ultra_checker)
+    print(ultra_checker)
     return cases_count
 
 def BFA(data):
@@ -99,10 +96,7 @@ def BFA(data):
     b = 1
     cases_count = {1: [0]}
     for i in data:
-        count = 0
-        for j in cases_count[b]:
-            count += j
-
+        count = sum(cases_count[b])
         ultra_checker += 1
 
         if i + count < CASE:
@@ -125,6 +119,7 @@ def BFA(data):
                 if i + x < CASE:
                     for k2, v2 in cases_count.items():
                         check_v = sum(v2)
+                        ultra_checker += 1
                         if x == check_v:
                             cases_count[k2].append(i)
                             check = True
@@ -134,7 +129,7 @@ def BFA(data):
                 b += 1
                 cases_count[b] = [i]
 
-    #print(ultra_checker)
+    print(ultra_checker)
 
     return cases_count
 
@@ -153,8 +148,6 @@ if __name__ == "__main__":
 
     valerchick = [52, 21, 93, 90, 89, 9, 31, 73, 64, 35, 48, 95, 77, 13, 33, 98, 49, 55, 55, 93]
 
-    testtt = [51, 51, 51]
-
     comb = []
 
     for j in dataFrame:
@@ -164,10 +157,10 @@ if __name__ == "__main__":
     sorted(comb)
 
     print("\nNFA for 1 set")
-    print(NFA(sort3))
+    print(NFA(sorted(comb)))
     print("\nFFA for 1 set")
-    print(FFA(sort3))
+    print(FFA(sorted(comb)))
     print("\nWFA for 1 set")
-    print(WFA(sort3))
+    print(WFA(sorted(comb)))
     print("\nBFA for 1 set")
-    print(BFA(sort3))
+    print(BFA(sorted(comb)))
