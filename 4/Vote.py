@@ -14,36 +14,30 @@ for x in example:
 print(lst)
 #Кондорсе
 
-def condors(s, y):
+lstN = ["a", "b", "c", "d"]
 
-    count1 = 0
-    count2 = 0
-
-    for x in example:
-        if example[x].index(s) < example[x].index(y):
-            count1 += int(example[x][0])
-        else:
-            count2 += int(example[x][0])
-    lst2["{} : {}".format(s, y)] = str("{} : {}".format(count1, count2))
-
+def condors(lstN):
+    lstCheck = []
+    for s in lstN:
+        for s2 in lstN:
+            lstCheck.append(s)
+            count1 = 0
+            count2 = 0
+            if s2 not in lstCheck:
+                for x in example:
+                    if example[x].index(s) < example[x].index(s2):
+                        count1 += int(example[x][0])
+                    else:
+                        count2 += int(example[x][0])
+                    lst2["{} : {}".format(s, s2)] = str("{} : {}".format(count1, count2))
+            else:
+                continue
+    return lst2
 lst2 = {}
+condors(lstN)
 
-condForA = ["b", "c", "d"]
-for y in condForA:
-    condors("a", y)
-
-condForB = ["c", "d"]
-
-for x in condForB:
-    condors("b", x)
-
-condors("c", "d")
-
-print()
-
-for x, y in lst2.items():
-
-    print(x + " = " + y)
+for k, v in lst2.items():
+    print(k + " = " + v)
 
 #Альт голоса
 
@@ -53,13 +47,11 @@ for x in example:
 
     lst3[example[x][1]] = example[x][0]
 
-minV = min(lst3.values())
+maxV = max(lst3.values())
 lst4 = {}
 
 for k, v in lst3.items():
 
-    if v != minV:
+    if v == maxV:
         lst4[k] = v
-
-print()
 print(lst4)
