@@ -69,6 +69,7 @@ def WFA(data):
 
             for k, v in test.items():
                 global v_min
+                global k_check
                 v_min = 100
                 k_check = 1
                 ultra_checker += 1
@@ -76,10 +77,10 @@ def WFA(data):
                     v_min = v
                     k_check = k
 
-                if i + v_min < CASE:
-                    cases_count[k_check].append(i)
-                    check = True
-                    break
+            if i + v_min < CASE:
+                cases_count[k_check].append(i)
+                check = True
+                break
 
             if check == False:
                 b += 1

@@ -3,18 +3,21 @@
 example = { "x" : ["3","d", "a", "c", "b"],
             "y" : ["4", "a", "b", "c", "d"],
             "z" : ["4", "b", "c", "d", "a"]}
+
+lstN = ["a", "b", "c", "d"]
+
 #Относ большиснтво
 
 lst = {}
 
 for x in example:
-
-    lst[example[x][1]] = example[x][0]
-
+    try:
+        lst[example[x][1]] += int(example[x][0])
+    except:
+        lst[example[x][1]] = int(example[x][0])
 print(lst)
 #Кондорсе
 
-lstN = ["a", "b", "c", "d"]
 
 def condors(lstN):
     lstCheck = []
@@ -47,11 +50,20 @@ for x in example:
 
     lst3[example[x][1]] = example[x][0]
 
-maxV = max(lst3.values())
+minV = min(lst3.values())
 lst4 = {}
-
+key = ""
 for k, v in lst3.items():
+    if v == minV:
+        key = k
 
-    if v == maxV:
-        lst4[k] = v
-print(lst4)
+for x in example:
+    lst4[x] = [h for h in example[x] if h != key]
+alt = {}
+for x in lst4:
+    #print(lst5[x])
+    try:
+        alt[lst4[x][1]] += int(lst4[x][0])
+    except:
+        alt[lst4[x][1]] = int(lst4[x][0])
+print(alt)
